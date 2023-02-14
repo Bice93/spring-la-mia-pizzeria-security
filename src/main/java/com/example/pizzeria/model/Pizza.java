@@ -12,7 +12,7 @@ public class Pizza {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nome;
 	private String descrizione;
 	private String foto;
@@ -53,7 +53,7 @@ public class Pizza {
 	public void setPrezzo(float prezzo) {
 		this.prezzo = prezzo;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

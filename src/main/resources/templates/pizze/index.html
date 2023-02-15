@@ -23,7 +23,11 @@
 							</div>
 						</div>
 					<div class="card-footer">
-						<small class="text-muted">Possibile modifica</small>
+						<small class="text-muted">
+						<div>
+							<a th:href="@{'pizze/'+${pizza.id}}"> > </a>
+						</div>
+						</small>
 					</div>
 				</div>
 			</div>

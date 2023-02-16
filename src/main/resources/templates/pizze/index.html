@@ -2,32 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+<div th:replace="~{fragments/fragment :: head_style}"></div>
 <title>Pizze</title>
 </head>
-<body>
+<body class="body">
+<div class="container mb-3">
+<div class="row">
 	<h1>Le mie pizze</h1>
-	<form>
-		<input type="text" name="nome" th:value="${keyword}"> <input type="submit" value="Cerca">
+	<form class="ms_filter">
+		<label class="d-block">Filter by</label>
+		<input class="input_filter" placeholder="Inserisci il nome della pizza..." type="text" name="nome" th:value="${keyword}"> <input class="btn_search" type="submit" value="Cerca">
 	</form>
+</div>
+</div>
 	<div class="container">
-		<div class="row">
+		<div class="row row-cols-1 row-cols-md-2 g-4">
 			<!-- card pizza -->
-			<div  th:each="pizza : ${pizze}">
-				<div class="card mb-5 rounded-1" style="box-shadow: 0px 2px 5px 2px rgba(114,114,114,0.7)">
+			<div th:each="pizza : ${pizze}">
+				<div class="card h-100 mb-5 rounded-1" style="box-shadow: 0px 2px 5px 2px rgba(114,114,114,0.7)">
 						<div class="card-body p-0 d-flex">
-						<div class="col-10 p-3">
+						<div class="col-9 p-3 position-relative">
 							<h4 class="card-title">[[${pizza.id}]] - [[${pizza.nome}]]</h4>
 							<p class="card-text">[[${pizza.descrizione}]]</p>
-							<h6 class="card-title">Prezzo: [[${pizza.prezzo}]] €</h6>					
+							<h6 class="card-title position-absolute" style="bottom: 0px">Prezzo: [[${pizza.prezzo}]] €</h6>					
 						</div>
-							<div class="col-2 p-1">
-								<img th:src="${pizza.foto}" class="img-fluid" th:alt="${pizza.nome} + '\'s pizza'">
+							<div class="col-3 p-1">
+								<img th:src="${pizza.foto}" class="w-100 h-100" style="object-fit: cover" th:alt="${pizza.nome} + '\'s pizza'">
 							</div>
 						</div>
 					<div class="card-footer">
 						<small class="text-muted">
-						<div>
+						<div class="ms_btn">
 							<a th:href="@{'pizze/'+${pizza.id}}"> > </a>
 						</div>
 						</small>
@@ -40,7 +45,6 @@
 			</div>
 		</div>
 	</div>
-
-	<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+<div th:replace="~{fragments/fragment :: script_style}"></div>
 </body>
 </html>

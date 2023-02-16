@@ -1,10 +1,17 @@
 package com.example.pizzeria.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="pizze")
@@ -13,15 +20,31 @@ public class Pizza {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotEmpty
+	@NotNull (message="Il campo 'Nome' non può essere vuoto")
+	@Size(min=5, max=250)
 	private String nome;
+	
+	@NotEmpty
+	@NotNull (message="Il campo 'Descrizione' non può essere vuoto")
+	@Size(min=5, max=250)
 	private String descrizione;
+	
+	@NotEmpty
+	@NotNull (message="Il campo 'Foto' non può essere vuoto")
+	@Size(min=5, max=250)
 	private String foto;
-	private float prezzo;
+	
+	@NotNull (message="Il campo 'Prezzo' non può essere vuoto")
+	@DecimalMin("1.00")
+	@DecimalMax("30.00")
+	private BigDecimal prezzo;
 	
 	
 	public Pizza() { }
 	
-	public Pizza(String nome, String descrizione, String foto, float prezzo) {
+	public Pizza(String nome, String descrizione, String foto, BigDecimal prezzo) {
 		super();
 		this.nome = nome;
 		this.descrizione = descrizione;
@@ -47,10 +70,10 @@ public class Pizza {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	public float getPrezzo() {
+	public BigDecimal getPrezzo() {
 		return prezzo;
 	}
-	public void setPrezzo(float prezzo) {
+	public void setPrezzo(BigDecimal prezzo) {
 		this.prezzo = prezzo;
 	}
 	public Integer getId() {

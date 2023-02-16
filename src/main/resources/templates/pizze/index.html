@@ -9,7 +9,7 @@
 <div class="container mb-3">
 <div class="row">
 	<h1>Le mie pizze</h1>
-	<form class="ms_filter">
+	<form class="ms_filter" th:if="${pizze.size() > 0}">
 		<label class="d-block">Filter by</label>
 		<input class="input_filter" placeholder="Inserisci il nome della pizza..." type="text" name="nome" th:value="${keyword}"> <input class="btn_search" type="submit" value="Cerca">
 	</form>

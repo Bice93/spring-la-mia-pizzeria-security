@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<div th:replace="~{fragments/fragment :: head_style}"></div>
+<title>Crea nuova pizza</title>
+</head>
+<body class="body">
+
+	<div class="container my-5">
+		<div class="row">
+		<div class="text-center">
+			<h2>Crea la tua nuova pizza</h2>
+		</div>
+		<div class="col-6 mx-auto">
+			<form>
+				<div class="mb-3 input-group">
+					<label for="nomePizza" class="form-label input-group">Nome</label> 
+					<input type="text" class="form-control input-group rounded-0" id="nomePizza">
+				</div>
+				
+				<div class="mb-3 input-group">
+					<label for="descrizionePizza" class="form-label input-group">Descrizione</label> 
+					<textarea class="form-control input-group rounded-0" id="descrizionePizza" rows="8"></textarea>
+				</div>
+				
+				<div class="mb-3 input-group">
+					<label for="fotoPizza" class="form-label input-group">Foto</label> 
+					<input type="text" class="form-control input-group rounded-0" id="fotoPizza">
+				</div>
+				
+				<div class="mb-3 input-group">
+					<label for="prezzoPizza" class="input-group">Prezzo</label> 
+					<span class="input-group-text">€</span>
+					  <span class="input-group-text">0.00</span>
+					  <input type="text" class="form-control input-group rounded-0" id="prezzoPizza">
+				</div>
+				
+				<div class="text-end">
+					<button type="submit" class="btn btn-light rounded-0 my-3">Invia</button>			
+				</div>
+			</form>
+		</div>
+		</div>
+	</div>
+
+	<div th:replace="~{fragments/fragment :: script_style}"></div>
+</body>
+</html>

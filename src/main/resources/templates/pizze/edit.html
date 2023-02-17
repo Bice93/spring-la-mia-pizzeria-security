@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <div th:replace="~{fragments/fragment :: head_style}"></div>
-<title>Crea nuova pizza</title>
+<title>Modifica pizza</title>
 </head>
 <body class="body">
 
 	<div class="container my-5">
 		<div class="row">
 			<div class="text-center">
-				<h2>Crea la tua nuova pizza</h2>
+				<h2>Modifica la tua pizza</h2>
 			</div>
 			<div class="col-9 mx-auto ms_boxCreate p-5">
-				<form id="pizza-form" th:object="${pizza}" th:action="@{/pizze/create}" method="post">
+				<form id="pizza-form" th:object="${pizza}" th:action="@{/pizze/edit/{id}(id=${pizza.id})}" method="post">
 					<div th:replace="~{fragments/fragment :: form}"></div>
 				</form>
 			</div>

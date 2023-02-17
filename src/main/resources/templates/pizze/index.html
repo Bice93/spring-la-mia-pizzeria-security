@@ -6,45 +6,64 @@
 <title>Pizze</title>
 </head>
 <body class="body">
-<div class="container mb-3">
-<div class="row">
 	<h1>Le mie pizze</h1>
-	<form class="ms_filter" th:if="${pizze.size() > 0}">
-		<label class="d-block">Filter by</label>
-		<input class="input_filter" placeholder="Inserisci il nome della pizza..." type="text" name="nome" th:value="${keyword}"> <input class="btn_search" type="submit" value="Cerca">
-	</form>
-</div>
-</div>
+	<div class="container mb-3">
+		<div class="row">
+			<div class="d-flex justify-content-between">
+				<div>
+					<p class="fs-6">
+						Aggiungi pizza<a th:href="@{/pizze/create}"><i
+							class="ms-2 fa-solid fa-plus text-dark fs-3 align-middle"></i></a>
+					</p>
+				</div>
+				<form class="ms_filter" th:if="${pizze.size() > 0}">
+					<label class="d-block fs-6">Filter by</label> <input
+						class="input_filter"
+						placeholder="Inserisci il nome della pizza..." type="text"
+						name="nome" th:value="${keyword}"> <input
+						class="btn_search" type="submit" value="Cerca">
+				</form>
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<div class="row row-cols-1 row-cols-md-2 g-4">
 			<!-- card pizza -->
 			<div th:each="pizza : ${pizze}">
-				<div class="card h-100 mb-5 rounded-1" style="box-shadow: 0px 2px 5px 2px rgba(114,114,114,0.7)">
-						<div class="card-body p-0 d-flex">
+				<div class="card h-100 mb-5 rounded-1"
+					style="box-shadow: 0px 2px 5px 2px rgba(114, 114, 114, 0.7)">
+					<div class="card-body p-0 d-flex">
 						<div class="col-9 p-3 position-relative">
 							<h4 class="card-title">[[${pizza.id}]] - [[${pizza.nome}]]</h4>
 							<p class="card-text">[[${pizza.descrizione}]]</p>
-							<h6 class="card-title position-absolute" style="bottom: 0px">Prezzo: [[${pizza.prezzo}]] €</h6>					
+							<h6 class="card-title position-absolute" style="bottom: 0px">Prezzo:
+								[[${pizza.prezzo}]] €</h6>
 						</div>
-							<div class="col-3 p-1">
-								<img th:src="${pizza.foto}" class="w-100 h-100" style="object-fit: cover" th:alt="${pizza.nome} + '\'s pizza'">
-							</div>
+						<div class="col-3 p-1">
+							<img th:src="${pizza.foto}" class="w-100 h-100"
+								style="object-fit: cover" th:alt="${pizza.nome} + '\'s pizza'">
 						</div>
+					</div>
 					<div class="card-footer">
 						<small class="text-muted">
-						<div class="ms_btn">
-							<a th:href="@{'pizze/'+${pizza.id}}"> > </a>
-						</div>
+							<div class="d-flex">
+								<span class="me-1">Dettagli</span>
+								<div class="ms_btn">
+									<a th:href="@{'pizze/'+${pizza.id}}"> <i
+										class="fa-solid fa-chevron-right"></i>
+									</a>
+								</div>
+							</div>
 						</small>
 					</div>
 				</div>
 			</div>
 			<!-- fine card -->
 			<div>
-				<h2 th:if="${pizze.size() == 0}"> Non è presente nessuna pizza!</h2>
+				<h2 th:if="${pizze.size() == 0}">Non è presente nessuna pizza!</h2>
 			</div>
 		</div>
 	</div>
-<div th:replace="~{fragments/fragment :: script_style}"></div>
+	<div th:replace="~{fragments/fragment :: script_style}"></div>
 </body>
 </html>

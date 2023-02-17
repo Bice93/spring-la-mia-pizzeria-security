@@ -7,20 +7,28 @@
 </head>
 <body class="body">
 <div class="container">
-<div class="row">
-	<h1>Dettaglio pizza</h1>
-	<div class="position-relative box_detail">
-		<img th:alt="${pizza.nome} + '\'s pizza'" th:src="${pizza.foto}" class="w-100 h-100 img_detail" style="object-fit: cover">
-		<div class="body_detail p-4 rounded-1">
-		<div class="title_detail">
-			<h2>[[${pizza.id}]] - [[${pizza.nome}]]</h2>		
-		</div>
-			<p class="card-text mt-4"><span class="d-block">Ingredienti:</span> [[${pizza.descrizione}]]</p>
-			<h6><span class="d-block">Prezzo:</span> [[${pizza.prezzo}]] €</h6>	
+		<div class="row">
+		
+			<h1>Dettaglio pizza</h1>
+			
+			<div class="position-relative box_detail">
+				<img th:alt="${pizza.nome} + '\'s pizza'" th:src="${pizza.foto}"
+					class="w-100 h-100 img_detail" style="object-fit: cover">
+				<div class="body_detail p-4 rounded-1">
+					<div class="title_detail">
+						<h2>[[${pizza.id}]] - [[${pizza.nome}]]</h2>
+					</div>
+					<p class="card-text mt-4">
+						<span class="d-block">Ingredienti:</span> [[${pizza.descrizione}]]
+					</p>
+					<h6>
+						<span class="d-block">Prezzo:</span> [[${pizza.prezzo}]] €
+					</h6>
+				</div>
+			</div>
+			
 		</div>
 	</div>
-</div>
-</div>
 <div th:replace="~{fragments/fragment :: script_style}"></div>
 </body>
 </html>

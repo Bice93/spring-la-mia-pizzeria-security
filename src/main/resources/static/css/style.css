@@ -1,13 +1,13 @@
 /* @charset "ISO-8859-1"; */
 
 .body{
-	    background-color: #2b4a3399;
+	    background-color: #D2D79F;
 	    font-family: sans-serif;
 }
 
 .input_filter{
     border: 0px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #483838;
     background-color: inherit;
     width: 15rem;
     height: 1.5rem;
@@ -47,7 +47,7 @@
 .ms_btn{
 	width: 1.5rem;
 	height: 1.5rem;
-	border: 1px solid black;
+	border: 1px solid #d4d4d4;
 	border-radius: 50%;
 	position: relative;
 	text-align: center;
@@ -62,7 +62,7 @@
 
 .title_detail{
 	position: absolute;
-	background-color: black;
+	background-color: #42855B;
 	bottom: 23rem;
     left: -1rem;
     padding: .7rem;
@@ -78,11 +78,23 @@
 	width: 50rem;
 	height: 25rem;
 	color: white;
-	background-color: rgba(52,52,52,0.9);
+	background-color: rgba(72, 56, 56, 0.9);
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	
+}
+
+.ms_boxCreate{
+	background-color: rgba(72, 56, 56, 0.8);
+	color: #90B77D;
+}
+
+.ms_inputForm{
+	border: 0px;
+    background-color: inherit;
+    border-bottom: 1px solid #483838;
+    color: #90B77D;
 }
 

@@ -7,32 +7,34 @@
 </head>
 <body class="body">
 
-<div class="container my-5">
+	<div class="container my-5">
 		<div class="row">
-		<div class="text-center">
-			<h2>Crea la tua nuova pizza</h2>
-		</div>
-		<div class="col-6 mx-auto">
+			<div class="text-center">
+				<h2>Crea la tua nuova pizza</h2>
+			</div>
+			<div class="col-9 mx-auto ms_boxCreate p-5">
 				<form id="pizza-form" th:object="${pizza}"
 					th:action="@{/pizze/create}" method="post">
-					
+
 					<div class="mb-3 input-group">
 						<label for="nomePizza" class="form-label input-group">Nome</label>
-						<input th:field="*{nome}" type="text" class="form-control input-group rounded-0"
-							id="nomePizza" th:errorClass="is-invalid">
+						<input th:field="*{nome}" type="text"
+							class="ms_inputForm input-group rounded-0 " id="nomePizza"
+							th:errorClass="is-invalid">
 						<div th:if="${#fields.hasErrors('nome')}" class="invalid-feedback">
 							<ul>
-								<li th:each="err : ${#fields.errors('nome') } "
-									th:text="${err}"></li>
+								<li th:each="err : ${#fields.errors('nome') } " th:text="${err}"></li>
 							</ul>
 						</div>
 					</div>
 
 					<div class="mb-3 input-group">
 						<label for="descrizionePizza" class="form-label input-group">Descrizione</label>
-						<textarea th:field="*{descrizione}" class="form-control input-group rounded-0"
-							id="descrizionePizza" rows="8" th:errorClass="is-invalid"></textarea>
-						<div th:if="${#fields.hasErrors('descrizione')}" class="invalid-feedback">
+						<textarea th:field="*{descrizione}"
+							class="ms_inputForm input-group rounded-0" id="descrizionePizza"
+							rows="8" th:errorClass="is-invalid"></textarea>
+						<div th:if="${#fields.hasErrors('descrizione')}"
+							class="invalid-feedback">
 							<ul>
 								<li th:each="err : ${#fields.errors('descrizione') } "
 									th:text="${err}"></li>
@@ -42,22 +44,23 @@
 
 					<div class="mb-3 input-group">
 						<label for="fotoPizza" class="form-label input-group">Foto</label>
-						<input th:field="*{foto}" type="text" class="form-control input-group rounded-0"
-							id="fotoPizza" th:errorClass="is-invalid">
+						<input th:field="*{foto}" type="text"
+							class="ms_inputForm input-group rounded-0" id="fotoPizza"
+							th:errorClass="is-invalid">
 						<div th:if="${#fields.hasErrors('foto')}" class="invalid-feedback">
 							<ul>
-								<li th:each="err : ${#fields.errors('foto') } "
-									th:text="${err}"></li>
+								<li th:each="err : ${#fields.errors('foto') } " th:text="${err}"></li>
 							</ul>
 						</div>
 					</div>
 
 					<div class="mb-3 input-group">
-						<label for="prezzoPizza" class="input-group">Prezzo</label> <span
-							class="input-group-text">€</span> <span class="input-group-text">0.00</span>
-						<input th:field="*{prezzo}" type="text" class="form-control input-group rounded-0"
-							id="prezzoPizza" th:errorClass="is-invalid">
-						<div th:if="${#fields.hasErrors('prezzo')}" class="invalid-feedback">
+						<label for="prezzoPizza" class="input-group">Prezzo € 0.00</label>
+						<input th:field="*{prezzo}" type="text"
+							class="ms_inputForm input-group rounded-0" id="prezzoPizza"
+							th:errorClass="is-invalid">
+						<div th:if="${#fields.hasErrors('prezzo')}"
+							class="invalid-feedback">
 							<ul>
 								<li th:each="err : ${#fields.errors('prezzo') } "
 									th:text="${err}"></li>
@@ -72,9 +75,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
 
 	<div th:replace="~{fragments/fragment :: script_style}"></div>
 </body>

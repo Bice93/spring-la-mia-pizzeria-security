@@ -6,8 +6,8 @@
 <title>Pizze</title>
 </head>
 <body class="body">
-	<h1>Le mie pizze</h1>
-	<div class="container mb-3">
+<div th:replace="~{fragments/fragment :: nav}"></div>
+	<div class="container mt-5 mb-3">
 		<div class="row">
 			<div class="d-flex justify-content-between">
 				<div>
@@ -57,13 +57,13 @@
 								</div>
 								<div class="d-flex">
 									<a class="me-3" th:href="@{'/pizze/edit/{id}'(id=${pizza.id})}">
-										<i class="fa-solid fa-pen-to-square fs-4 text-warning"></i>
+										<i class="fa-solid fa-pen-to-square fs-4 text-warning fw-light"></i>
 									</a>
 									<form action="#"
 										th:action="@{'/pizze/delete/{id}'(id=${pizza.id})}"
 										method="post">
 										<button type="submit" id="submitButton" class="border-0 bg-transparent"> <i
-											class="fa-solid fa-trash-can fs-4 text-danger"></i>
+											class="fa-solid fa-trash-can fs-4 text-danger fw-light"></i>
 										</button>
 									</form>
 								</div>

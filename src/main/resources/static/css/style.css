@@ -5,6 +5,15 @@
 	    font-family: sans-serif;
 }
 
+.ms_nav{
+	background-color: rgba(72, 56, 56);
+	background: linear-gradient(0deg, rgba(210,215,159,1) 0%, rgba(72,56,56,1) 100%);
+	height: 10vh;
+	color: rgb(72, 56, 56);
+	font-size: 1.1rem;
+	font-weight: 500;
+}
+
 .input_filter{
     border: 0px;
     border-bottom: 1px solid #483838;
@@ -65,7 +74,7 @@
 	background-color: #42855B;
 	bottom: 23rem;
     left: -1rem;
-    padding: .7rem;
+    padding: 1rem;
 	
 }
 
@@ -96,5 +105,10 @@
     background-color: inherit;
     border-bottom: 1px solid #483838;
     color: #90B77D;
+}
+
+.boxEdit_detail{
+	bottom: 1rem;
+	right: 1rem;
 }
 

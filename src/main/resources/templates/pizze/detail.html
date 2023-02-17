@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <div th:replace="~{fragments/fragment :: head_style}"></div>
-<title>Insert title here</title>
+<title>Dettagli pizza</title>
 </head>
 <body class="body">
+<div th:replace="~{fragments/fragment :: nav}"></div>
 	<div class="p-3">
 		<p class="fs-6">
 			<a th:href="@{/pizze}"><i class="fa-solid fa-arrow-left text-dark fs-3 align-middle"></i></a> Torna alla Home
@@ -14,8 +15,6 @@
 	<div class="container">
 		<div class="row">
 		
-			<h1>Dettaglio pizza</h1>
-			
 			<div class="position-relative box_detail">
 				<img th:alt="${pizza.nome} + '\'s pizza'" th:src="${pizza.foto}"
 					class="w-100 h-100 img_detail" style="object-fit: cover">
@@ -29,6 +28,18 @@
 					<h6>
 						<span class="d-block">Prezzo:</span> [[${pizza.prezzo}]] €
 					</h6>
+					<div class="d-flex position-absolute boxEdit_detail">
+						<a class="me-3" th:href="@{'/pizze/edit/{id}'(id=${pizza.id})}">
+							<i class="fa-solid fa-pen-to-square fs-4 text-warning fw-light"></i>
+						</a>
+						<form action="#"
+							th:action="@{'/pizze/delete/{id}'(id=${pizza.id})}" method="post">
+							<button type="submit" id="submitButton"
+								class="border-0 bg-transparent">
+								<i class="fa-solid fa-trash-can fs-4 text-danger fw-light"></i>
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
 			

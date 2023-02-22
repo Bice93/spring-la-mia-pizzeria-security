@@ -28,6 +28,15 @@
 					<h6>
 						<span class="d-block">Prezzo:</span> [[${pizza.prezzo}]] €
 					</h6>
+					
+					<div th:if="${pizza.offerteList.size()>0}">
+						<h4>Offerte:</h4>
+						<ul th:each="offerta : ${pizza.offerteList}">
+							<li>[[${offerta.name}]] : [[${#temporals.format(offerta.startOfferDate, 'dd/MM/yyyy')}]] / 
+							 [[${#temporals.format(offerta.endOfferDate, 'dd/MM/yyyy')}]]</li>
+						</ul>
+					</div>
+					
 					<div class="d-flex position-absolute boxEdit_detail">
 						<a class="me-3" th:href="@{'/pizze/edit/{id}'(id=${pizza.id})}">
 							<i class="fa-solid fa-pen-to-square fs-4 text-warning fw-light"></i>

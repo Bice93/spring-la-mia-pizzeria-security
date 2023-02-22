@@ -1,11 +1,13 @@
 package com.example.pizzeria.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -41,7 +43,18 @@ public class Pizza {
 	@DecimalMax("30.00")
 	private BigDecimal prezzo;
 	
+	@OneToMany(mappedBy = "pizza")
+	private List<Offerta> offerteList;
 	
+	
+	public List<Offerta> getOfferteList() {
+		return offerteList;
+	}
+
+	public void setOfferteList(List<Offerta> offerteList) {
+		this.offerteList = offerteList;
+	}
+
 	public Pizza() { }
 	
 	public Pizza(String nome, String descrizione, String foto, BigDecimal prezzo) {

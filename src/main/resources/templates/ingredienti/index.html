@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<div th:replace="~{fragments/fragment :: head_style}"></div>
+<title>Ingredienti</title>
+</head>
+<body class="body">
+	<div th:replace="~{fragments/fragment :: nav}"></div>
+	<div class="container">
+		<div class="row">
+				<h1 class="col-9 text-center">Lista ingredienti</h1>
+				<p class=" col-3 fs-6 text-end align-self-center">
+					Aggiungi ingrediente<a><i
+						class="ms-2 fa-solid fa-plus text-dark fs-3 align-middle"></i></a>
+				</p>
+			<div>
+				<h5 th:if="${ingredienti.size() == 0}">Non è presente nessun
+					ingrediente!</h5>
+			</div>
+			
+		</div>
+	</div>
+
+	<div th:replace="~{fragments/fragment :: script_style}"></div>
+</body>
+</html>

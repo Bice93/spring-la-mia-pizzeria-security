@@ -14,6 +14,15 @@
 	font-weight: 500;
 }
 
+.ms_link{
+	text-decoration: none;
+	color: rgb(72, 56, 56);
+}
+
+.ms_link:hover{
+	color: rgb(72, 56, 56);
+}
+
 .input_filter{
     border: 0px;
     border-bottom: 1px solid #483838;

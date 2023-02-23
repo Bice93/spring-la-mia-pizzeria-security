@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.pizzeria.model.Ingrediente;
 import com.example.pizzeria.model.Pizza;
+import com.example.pizzeria.repository.IngredienteRepository;
 import com.example.pizzeria.repository.PizzaRepository;
 
 import jakarta.validation.Valid;
@@ -25,6 +27,9 @@ public class PizzaController {
 
 	@Autowired
 	private PizzaRepository pizzaRepository;
+	
+	@Autowired
+	private IngredienteRepository ingredienteRepository;
 	
 //	@GetMapping
 //	public String index(Model m) {
@@ -63,6 +68,8 @@ public class PizzaController {
 	@GetMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("pizza", new Pizza());
+		List<Ingrediente> ingredienti = ingredienteRepository.findAll();
+		model.addAttribute("ingredienti", ingredienti);
 		return "/pizze/create";
 	}
 
@@ -80,6 +87,8 @@ public class PizzaController {
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("pizza", pizzaRepository.getReferenceById(id));
+		List<Ingrediente> ingredienti = ingredienteRepository.findAll();
+		model.addAttribute("ingredienti", ingredienti);
 		return "pizze/edit";
 	}
 	
@@ -94,7 +103,7 @@ public class PizzaController {
 		}
 		
 		pizzaRepository.save(formPizza);
-		return "/pizze/detail";
+		return "redirect:/pizze/"+formPizza.getId();
 	}
 	
 	@PostMapping("/delete/{id}")

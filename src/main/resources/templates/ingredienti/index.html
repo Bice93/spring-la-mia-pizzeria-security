@@ -19,7 +19,9 @@
 			</div>
 			<div th:if="${ingredienti.size() > 0}" class="d-flex g-2">
 				<div th:each="ingrediente : ${ingredienti}" class="col-2">
-					<div class="col-11 p-3 ms_ingredient">[[${ingrediente.name}]]</div>
+					<div class="col-11 p-3 ms_ingredient">
+						<h6>[[${ingrediente.name}]]</h6>
+					</div>
 				</div>
 			</div>
 

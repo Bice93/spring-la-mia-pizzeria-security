@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<!--/* ----------------------STYLE HEAD--------------------------------- */-->
 	<th:block th:fragment="head_style">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 		<link th:rel="stylesheet"
@@ -13,12 +13,14 @@
 		<link th:rel="stylesheet"
 			th:href="@{/webjars/font-awesome/6.3.0/css/all.min.css} " />
 	</th:block>
-
+	
+<!--/* ----------------------STYLE--------------------------------- */-->
 	<div th:fragment="script_style">
 		<script
 			th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
 	</div>
-
+	
+<!--/* ----------------------FORM PIZZA--------------------------------- */-->
 	<th:block th:fragment="form">
 		<div class="mb-3 input-group">
 			<label for="nomePizza" class="form-label input-group">Nome</label> <input
@@ -69,6 +71,14 @@
 				</ul>
 			</div>
 		</div>
+		
+		<div class="mb-3 input-group">
+			<label for="ingredientiPizza" class="input-group">Ingredienti: </label>
+			<div th:each="ingrediente : ${ingredienti}" class="me-4">
+				<input type="checkbox" th:value="${ingrediente.id}" th:field="*{ingredienti}" th:id="|ingredienti_${ingrediente.id}|">
+				<label th:for="|ingredienti_${ingrediente.id}|">[[${ingrediente.name}]]</label>
+			</div>
+		</div>
 
 		<div class="text-end">
 			<button type="submit" class="btn btn-light rounded-0 my-3">
@@ -78,6 +88,7 @@
 		</div>
 	</th:block>
 
+<!--/* ----------------------FORM OFFERTE--------------------------------- */-->
 	<th:block th:fragment="form-offer">
 		<input type="hidden" th:field="${offerta.pizza}">
 
@@ -108,6 +119,7 @@
 		</div>
 	</th:block>
 
+<!--/* ----------------------NAVBAR--------------------------------- */-->
 	<th:block th:fragment="nav">
 		<nav class="navbar navbar-expand-lg bg-body-tertiary ms_nav">
 			<div class="container-fluid">
@@ -122,5 +134,6 @@
 			</div>
 		</nav>
 	</th:block>
+	
 </body>
 </html>

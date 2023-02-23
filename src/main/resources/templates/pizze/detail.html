@@ -23,7 +23,10 @@
 						<h2>[[${pizza.id}]] - [[${pizza.nome}]]</h2>
 					</div>
 					<p class="card-text mt-4">
-						<span class="d-block">Ingredienti:</span> [[${pizza.descrizione}]]
+						<span class="d-block">Descrizione:</span> [[${pizza.descrizione}]]
+					</p>
+					<p class="card-text">Ingredienti:
+						<span th:each="ingrediente : ${pizza.ingredienti}" class="d-block">[[${ingrediente.name}]] </span> 
 					</p>
 					<h6>
 						<span class="d-block">Prezzo:</span> [[${pizza.prezzo}]] €

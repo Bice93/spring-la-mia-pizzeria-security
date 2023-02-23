@@ -1,9 +1,12 @@
 package com.example.pizzeria.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,6 +17,18 @@ public class Ingrediente {
 	private Integer id;
 	
 	private String name;
+	
+	@ManyToMany(mappedBy = "ingredienti")
+	private List<Pizza> pizze;
+
+
+	public List<Pizza> getPizze() {
+		return pizze;
+	}
+
+	public void setPizze(List<Pizza> pizze) {
+		this.pizze = pizze;
+	}
 
 	public Integer getId() {
 		return id;

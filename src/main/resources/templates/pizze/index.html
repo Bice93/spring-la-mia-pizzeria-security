@@ -36,6 +36,7 @@
 						<div class="col-9 p-3 position-relative">
 							<h4 class="card-title">[[${pizza.id}]] - [[${pizza.nome}]]</h4>
 							<p class="card-text">[[${pizza.descrizione}]]</p>
+							<p>Ingredienti: <span th:each="ingrediente : ${pizza.ingredienti}">[[${ingrediente.name}]] </span></p>
 							<h6 class="card-title position-absolute" style="bottom: 0px">Prezzo:
 								[[${pizza.prezzo}]] €</h6>
 						</div>

@@ -9,16 +9,20 @@
 	<div th:replace="~{fragments/fragment :: nav}"></div>
 	<div class="container">
 		<div class="row">
-				<h1 class="col-9 text-center">Lista ingredienti</h1>
-				<p class=" col-3 fs-6 text-end align-self-center">
-					Aggiungi ingrediente<a><i
+				<p class="fs-6 text-end align-self-center">
+					Aggiungi ingrediente<a th:href="@{/ingredienti/create}"><i
 						class="ms-2 fa-solid fa-plus text-dark fs-3 align-middle"></i></a>
 				</p>
-			<div>
-				<h5 th:if="${ingredienti.size() == 0}">Non è presente nessun
+			<div th:if="${ingredienti.size() == 0}">
+				<h5 >Non è presente nessun
 					ingrediente!</h5>
 			</div>
-			
+			<div th:if="${ingredienti.size() > 0}" class="d-flex g-2">
+				<div th:each="ingrediente : ${ingredienti}" class="col-2">
+					<div class="col-11 p-3 ms_ingredient">[[${ingrediente.name}]]</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 

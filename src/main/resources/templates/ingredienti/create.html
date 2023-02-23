@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<div th:replace="~{fragments/fragment :: head_style}"></div>
+<title>Crea Ingrediente</title>
+</head>
+<body class="body">
+	<div th:replace="~{fragments/fragment :: nav}"></div>
+		<div class="container">
+			<div class="row">
+			<div class="col-9 mx-auto ms_boxCreate p-5">
+				<form id="ingredeinte-form" th:object="${ingrediente}"
+					th:action="@{/ingredienti/create}" method="post">
+					<div class="mb-3 input-group">
+						<label for="nomeIngrediente" class="form-label input-group">Nome</label>
+						<input th:field="*{name}" type="text"
+							class="ms_inputForm input-group rounded-0 " id="nomeIngrediente">
+					</div>
+
+					<div class="text-end">
+						<button type="submit" class="btn btn-light rounded-0 my-3">
+							<a th:href="@{/ingredienti}"
+								class="text-decoration-none text-dark">Annulla</a>
+						</button>
+						<button type="submit" class="btn btn-light rounded-0 my-3">Invia</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	<div th:replace="~{fragments/fragment :: script_style}"></div>
+</body>
+</html>

@@ -8,12 +8,15 @@
 
 	<th:block th:fragment="head_style">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
-		<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/6.3.0/css/all.min.css} "/>
+		<link th:rel="stylesheet"
+			th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+		<link th:rel="stylesheet"
+			th:href="@{/webjars/font-awesome/6.3.0/css/all.min.css} " />
 	</th:block>
 
 	<div th:fragment="script_style">
-		<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+		<script
+			th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
 	</div>
 
 	<th:block th:fragment="form">
@@ -68,7 +71,39 @@
 		</div>
 
 		<div class="text-end">
-			<button type="submit" class="btn btn-light rounded-0 my-3"><a th:href="@{/pizze}" class="text-decoration-none text-dark">Annulla</a></button>
+			<button type="submit" class="btn btn-light rounded-0 my-3">
+				<a th:href="@{/pizze}" class="text-decoration-none text-dark">Annulla</a>
+			</button>
+			<button type="submit" class="btn btn-light rounded-0 my-3">Invia</button>
+		</div>
+	</th:block>
+
+	<th:block th:fragment="form-offer">
+		<input type="hidden" th:field="${offerta.pizza}">
+
+		<div class="mb-3 input-group">
+			<label for="nomeOfferta" class="form-label input-group">Nome</label>
+			<input th:field="*{name}" type="text"
+				class="ms_inputForm input-group rounded-0 " id="nomeOfferta">
+		</div>
+
+		<div class="mb-3 input-group">
+			<label class="form-label input-group" for="startDate"></label> <input
+				class="ms_inputForm input-group rounded-0" id="startDate"
+				th:field="*{startOfferDate}" type="date">
+		</div>
+
+		<div class="mb-3 input-group">
+			<label class="form-label input-group" for="endDate"></label> <input
+				class="ms_inputForm input-group rounded-0" id="endDate"
+				th:field="*{endOfferDate}" type="date">
+		</div>
+
+
+		<div class="text-end">
+			<button type="submit" class="btn btn-light rounded-0 my-3">
+				<a th:href="@{/pizze}" class="text-decoration-none text-dark">Annulla</a>
+			</button>
 			<button type="submit" class="btn btn-light rounded-0 my-3">Invia</button>
 		</div>
 	</th:block>

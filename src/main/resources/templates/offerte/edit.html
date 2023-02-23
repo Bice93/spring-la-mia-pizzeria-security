@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <div th:replace="~{fragments/fragment :: head_style}"></div>
-<title>Crea offerta</title>
+<title>Modifica offerta</title>
 </head>
 <body class="body">
 	<div th:replace="~{fragments/fragment :: nav}"></div>
-
 	<div class="container my-5">
 		<div class="row">
 			<div class="text-center">
-				<h2>Crea una nuova offerta</h2>
+				<h2>Modifica l'offerta</h2>
 			</div>
 			<div class="col-9 mx-auto ms_boxCreate p-5">
 				<form id="offerta-form" th:object="${offerta}"
-					th:action="@{/offerte/create}" method="post">
+					th:action="@{/offerte/edit/{id}(id=${offerta.id})}" method="post">
 					<div th:replace="~{fragments/fragment :: form-offer}"></div>
 				</form>
 			</div>

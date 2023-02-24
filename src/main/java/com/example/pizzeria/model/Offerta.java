@@ -2,6 +2,8 @@ package com.example.pizzeria.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +30,7 @@ public class Offerta {
 	@Size(min=5, max=250)
 	private String name;
 	
+	@JsonBackReference
 	@NotNull
 	@ManyToOne
 	private Pizza pizza;

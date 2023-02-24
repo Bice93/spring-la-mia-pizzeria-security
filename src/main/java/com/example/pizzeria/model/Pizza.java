@@ -3,6 +3,8 @@ package com.example.pizzeria.model;
 import java.math.BigDecimal;
 import java.util.List;
 
+import ch.qos.logback.core.subst.Token.Type;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,7 +46,7 @@ public class Pizza {
 	@DecimalMax("30.00")
 	private BigDecimal prezzo;
 	
-	@OneToMany(mappedBy = "pizza")
+	@OneToMany(mappedBy = "pizza", cascade=CascadeType.ALL)
 	private List<Offerta> offerteList;
 	
 	@ManyToMany

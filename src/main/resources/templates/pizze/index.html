@@ -10,8 +10,8 @@
 	<div class="container mt-5 mb-3">
 		<div class="row">
 			<div class="d-flex justify-content-between">
-				<div>
-					<p class="fs-6">
+				<div >
+					<p class="fs-6" sec:authorize="hasAuthority('ADMIN')">
 						Aggiungi pizza<a th:href="@{/pizze/create}"><i
 							class="ms-2 fa-solid fa-plus text-dark fs-3 align-middle"></i></a>
 					</p>

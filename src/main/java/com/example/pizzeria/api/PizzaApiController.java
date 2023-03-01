@@ -62,7 +62,6 @@ public class PizzaApiController {
 	public Pizza create(@RequestBody Pizza pizza) {
 		return pizzaR.save(pizza);
 	}
-	
 
 	//UPDATE
 	@PutMapping("{id}")
